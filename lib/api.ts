@@ -24,7 +24,7 @@ export interface FetchNotesResponse {
 }
 export interface RawFetchNotesResponse {
   notes: Note[];
-  totalPages: number;
+    totalPages: number;
 }
 
 export const fetchNotes = async ({page = 1, perPage = 12, search}: FetchNotesParams): Promise<FetchNotesResponse> => {
