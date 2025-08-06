@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import css from "./NoteDetails.module.css"
 
 interface NoteDetailsClientProps {
-    id: number;
+    id: string;
 }
 
 export default function NoteDetailsClient({id}: NoteDetailsClientProps) {

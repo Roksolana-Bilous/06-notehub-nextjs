@@ -3,7 +3,7 @@ import type { Note, NoteTag } from "../types/note";
 
 axios.defaults.baseURL = "https://next-docs-api.onrender.com";
 const myKey = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-const myApiKey = "Bearer ${myKey}";
+const myApiKey = `Bearer ${myKey}`;
 axios.defaults.headers.common["Authorization"] = myApiKey;
 
 if (!myKey) {
@@ -19,11 +19,10 @@ export interface FetchNotesParams {
 export interface FetchNotesResponse {
     page: number;
     data: Note[];
-    total_pages: number;
+    totalPages: number;
     perPage: number;
 }
-
-interface RawFetchNotesResponse {
+export interface RawFetchNotesResponse {
   notes: Note[];
   totalPages: number;
 }
@@ -43,12 +42,12 @@ export const fetchNotes = async ({page = 1, perPage = 12, search}: FetchNotesPar
     page,
     perPage,
     data: raw.notes,
-    total_pages: raw.totalPages,
+    totalPages: raw.totalPages,
   };
 };
 
-export const fetchNoteById = async (id: number): Promise<Note> => {
-  const response = await axios.get<Note>("/notes/${id}");
+export const fetchNoteById = async (id: string): Promise<Note> => {
+  const response = await axios.get<Note>(`/notes/${id}`);
   return response.data;
 };
 
@@ -62,7 +61,7 @@ export const createNote = async (note: {
     return response.data;
 };
 
-export const deleteNote = async (id: number): Promise<Note> => {
-    const response = await axios.delete<Note>("/notes/${id}");
+export const deleteNote = async (id: string): Promise<Note> => {
+    const response = await axios.delete<Note>(`/notes/${id}`);
     return response.data;
 };
