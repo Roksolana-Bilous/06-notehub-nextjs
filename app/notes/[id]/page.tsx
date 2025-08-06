@@ -7,17 +7,17 @@ type PageProps = {
 }
 
 export default async function NoteDetails({ params }: PageProps) {
-  const { id } = await params;
-  const queryClient = new QueryClient();
+    const { id } = await params;
+    const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ["note", id],
-    queryFn: () => fetchNoteById(id),
-  });
+    await queryClient.prefetchQuery({
+        queryKey: ["note", id],
+        queryFn: () => fetchNoteById(id),
+    });
 
-  return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <NoteDetailsClient id={id} />
-    </HydrationBoundary>
-  );
+    return (
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <NoteDetailsClient id={id} />
+        </HydrationBoundary>
+    );
 }
