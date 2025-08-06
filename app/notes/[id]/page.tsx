@@ -6,7 +6,7 @@ type NoteDetailsProps = {
     params: Promise<{ id: number }>;
 }
 
-const NoteDetails = async ({ params }: NoteDetailsProps) => {
+export const NoteDetails = async ({ params }: NoteDetailsProps) => {
     const { id } = await params;
 
     const queryClient = new QueryClient();
