@@ -12,3 +12,4 @@ const TanStackProvider = ({ children }: TanStackProviderProps) => {
 
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 }
+export default TanStackProvider
