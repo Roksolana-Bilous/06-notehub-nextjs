@@ -28,7 +28,7 @@ export interface RawFetchNotesResponse {
 }
 
 export const fetchNotes = async ({page = 1, perPage = 12, search}: FetchNotesParams): Promise<FetchNotesResponse> => {
-    const response = await axios.get<RawFetchNotesResponse>("https://notehub-public.goit.study/api", {
+    const response = await axios.get<RawFetchNotesResponse>("https://notehub-public.goit.study/api/notes", {
         params: {
             page,
             perPage,
