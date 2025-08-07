@@ -9,7 +9,6 @@ if (!myKey) {
   throw new Error('NEXT_PUBLIC_NOTEHUB_TOKEN is not defined. Please check your .env configuration.');
 };
 
-
 export interface FetchNotesParams {
     page?: number;
     perPage?: number;
